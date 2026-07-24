@@ -6,7 +6,13 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.entity.animal.horse.AbstractHorse;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.monster.Strider;
+import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.food.FoodProperties;
@@ -62,8 +68,14 @@ public class FoodProjectileEntity extends ThrowableItemProjectile {
                             this.random.nextFloat() * 0.1F + 0.9F
                     );
                 }
-            } else if(result.getEntity() instanceof Villager targetVillager) {
+            } else if(result.getEntity() instanceof AbstractVillager targetVillager) {
                 healMob(targetVillager, itemStack);
+            } else if(result.getEntity() instanceof AbstractHorse targetHorse) {
+                healMob(targetHorse, itemStack);
+            } else if(result.getEntity() instanceof Pig targetPig && targetPig.isSaddled()) {
+                healMob(targetPig, itemStack);
+            } else if (result.getEntity() instanceof Strider targetStrider && targetStrider.isSaddled()) {
+                healMob(targetStrider, itemStack);
             } else if(result.getEntity() instanceof LivingEntity targetMob) {
                 Player thrower = this.getOwner() instanceof Player player ? player : null;
 
