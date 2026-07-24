@@ -1,4 +1,4 @@
-package com.example.examplemod.platform.services;
+package com.mumu17.throwandeat.platform.services;
 
 public interface IPlatformHelper {
 

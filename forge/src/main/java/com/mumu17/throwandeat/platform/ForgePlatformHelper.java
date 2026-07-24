@@ -1,6 +1,6 @@
-package com.example.examplemod.platform;
+package com.mumu17.throwandeat.platform;
 
-import com.example.examplemod.platform.services.IPlatformHelper;
+import com.mumu17.throwandeat.platform.services.IPlatformHelper;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 
